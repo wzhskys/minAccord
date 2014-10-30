@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>jQuery选项卡插件</title>
+	<link type="text/css" href="css/reset.css" rel="stylesheet">
+    <link type="text/css" href="css/index.css" rel="stylesheet">
+    <style>
+        .all{margin-left:20px;margin-top:20px;width:602px;height:215px;overflow:hidden;}
+        p{display:block;overflow:hidden}
+        .selectd{display:block}
+        .tab{position:relative;z-index:10;top:1px;}
+        .tab li{float:left;cursor:pointer;background: url(images/ycxx_left_navbg2.jpg);width:120px; height:34px;text-align:center;line-height:34px;margin-right:10px;}
+        .tab li.on{background: url(images/ycxx_left_navbg1.jpg);color:#88C543;font-weight:bold;}
+        .tab li a{display:block;width:120px; height:34px;cursor:pointer;background: url(images/ycxx_left_navbg2.jpg);width:120px; height:34px;text-align:center;line-height:34px;margin-right:10px;}
+        .tab li a.on{background: url(images/ycxx_left_navbg1.jpg);color:#88C543;font-weight:bold;}
+        .tab1{position:relative;clear:both;width:600px;height:180px;border:1px solid #e1e1e1;overflow:hidden;}
+
+        .asidenav{width:200px;height:300px;margin:20px;border:1px solid #ccc;}
+        .ztab-head{width:100%;height:28px;line-height:28px;font-weight:bold;text-indent:10px;border-bottom:1px solid #ccc;background-color:#ddd;cursor:pointer;}
+        .asidenav div.on{color:#fff;background-color:#333;}
+        .ztab-cont p{padding:10px;}
+        .bom{height:30px;line-height:30px;text-align:center;background-color:#ccc;}
+        .bom a{font-weight:bold;}
+        .ztab-head s{float:right;display:block;width:20px;height:20px;background: url(images/sprite-iocn.png) 0 -633px no-repeat;}
+        .ztab-head s.on{background-position:0 -675px;}
+    </style>
+	<script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jQuery.minAccord.0.5.2.js"></script>
+
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="head">
+		<div class="head-main">
+			<a class="logo" href="#">jQuery.min</a>
+			<ul class="nav">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">选项卡</a></li>
+				<li><a href="#">Cookie</a></li>
+				<li><a class="on" href="#">弹出框</a></li>
+				<li><a href="#">图片轮播</a></li>
+			</ul>
+		</div>
+		
+	</div>
+	<!-- 中间 -->
+	<div class="main clearfloat">
+	    <div class="main-l">
+	    	<ul class="main-l-aside">
+	    		<li><a href="#ss1" id="navLefta">一：横向选项卡</a></li>
+	    		<li><a href="#ss2" id="navLeftb">二：横向嵌套选项卡</a></li>
+	    		<li><a href="#ss3" id="navLeftc">三：横向选项卡各自切换</a></li>
+	    		<li><a href="#ss4" id="navLeftd">四：竖向选项卡1</a></li>
+                <li class="last"><a href="#ss5" id="navLefte">五：竖向选项卡2</a></li>
+	    	</ul>
+	    </div> 	
+	    <div class="main-r">
+	    	<div class="main-r-hd" id="ss1" name="ss1">
+	    		一：横向选项卡
+	    	</div>
+	    	<div class="mt20 clearfloat">
+                <div class="all">
+                    <ul class="tab hTabs" id="tab">
+                        <li><a class="on" href="#">选项卡1</a></li>
+                        <li><a href="#">选项卡2</a></li>
+                        <li><a href="#">选项卡3</a></li>
+                        <li><a href="#">选项卡4</a></li>
+                    </ul>
+                    <div class="tab1">
+                        <div style="height:100%;background-color:#ccc;">内容1<br/>内容1<br/>内容1<br/>内容1<br/>内容1<br/>内容1<br/>内容1<br/>内容1<br/></div>
+                        <div style="display:none;height:100%;background-color:#FD83A7;"><a>内容2</a><br/><a>内容2</a><br/><a>内容2</a><br/><a>内容2</a><br/><a>内容2</a><br/></div>
+                        <div style="display:none;height:100%;background-color:#B6D805;"><font>内容3</font><br/><font>内容3</font><br/><font>内容3</font><br/><font>内容3</font><br/></div>
+                        <div style="display:none;height:100%;background-color:#A2D1FF;"><a>内容4</a><br/><a>内容4</a><br/><a>内容4</a><br/><a>内容4</a><br/><a>内容4</a><br/><a>内容4</a><br/></div>
+                    </div>
+                </div>
+	    	</div>
+
+	    	<div class="main-r-hd mt20" id="ss2" name="ss2">
+	    		二：横向嵌套选项卡
+	    	</div>
+	    	<div class="main-r-bd mt20 clearfloat">
+                <div class="all">
+                    <ul class="tab hTabs tab3" id="tab2">
+                        <li class="on">选项卡1</li>
+                        <li>选项卡2</li>
+                        <li>选项卡3</li>
+                        <li>选项卡4</li>
+                    </ul>
+                    <div class="tab1" style="height:178px;">
+                        <div style="height:100%;">
+
+                            <div class="all" style="width:565px;">
+                                <ul class="tab hTabs tab3" id="tab22">
+                                    <li class="on">选项卡1</li>
+                                    <li>选项卡2</li>
+                                    <li>选项卡3</li>
+                                    <li>选项卡4</li>
+                                </ul>
+                                <div class="tab1" style="width:560px;height:100px;">
+                                    <div style="height:100%;">内容1</div>
+                                    <div style="display:none;"><a>内容2</a></div>
+                                    <div style="display:none;"><font>内容3</font></div>
+                                    <div style="display:none;"><a>内容4</a></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="display:none;"><a>内容2</a></div>
+                        <div style="display:none;"><font>内容3</font></div>
+                        <div style="display:none;"><a>内容4</a></div>
+                    </div>
+                </div>
+	    	</div>
+
+            <div class="main-r-hd mt20" id="ss3" name="ss3">
+                三：横向选项卡各自切换
+            </div>
+            <div class="main-r-bd mt20 clearfloat">
+                <div class="all">
+                    <ul class="tab hTabs tab3" id="tab3">
+                        <li class="on">选项卡1</li>
+                        <li>选项卡2</li>
+                        <li>选项卡3</li>
+                        <li>选项卡4</li>
+                    </ul>
+                    <div class="tab1" style="height:178px;">
+                        <div style="height:100%;">内容1</div>
+                        <div style="display:none;"><a>内容2</a></div>
+                        <div style="display:none;"><font>内容3</font></div>
+                        <div style="display:none;"><a>内容4</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-r-hd mt20" id="ss4" name="ss4">
+                四：竖向选项卡1
+            </div>
+            <div class="main-r-bd mt20 clearfloat">
+                <div class="asidenav zTabs" id="asidenav">
+                    <div class="ztab-head">我的菜单1</div>
+                    <div class="ztab-cont ztab-cont111">
+                        <p>内容显示1</p>
+                    </div>
+                    <div class="ztab-head">我的菜单2</div>
+                    <div class="ztab-cont">
+                        <p>内容显示2</p>
+                    </div>
+                    <div class="ztab-head">我的菜单3</div>
+                    <div class="ztab-cont">
+                        <p>内容显示3</p>
+                    </div>
+                    <div class="ztab-head">我的菜单4</div>
+                    <div class="ztab-cont">
+                        <p>内容显示4</p>
+                    </div>
+                    <div class="ztab-head">我的菜单5</div>
+                    <div class="ztab-cont">
+                        <p>内容显示5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-r-hd mt20" id="ss5" name="ss5">
+                五：竖向选项卡2
+            </div>
+            <div class="main-r-bd mt20 clearfloat">
+                <div class="asidenav zTabs" id="asidenav1">
+                    <div class="ztab-head">
+                        <p class="fl">我的菜单1</p>
+                        <s href="javascript:void(0);"></s>
+                    </div>
+                    <div class="ztab-cont">
+                        <p>内容显示1</p>
+                    </div>
+                    <div class="ztab-head">
+                        <p class="fl">我的菜单2</p>
+                        <s href="javascript:void(0);"></s>
+                    </div>
+                    <div class="ztab-cont">
+                        <p>内容显示2</p>
+                    </div>
+                    <div class="ztab-head">
+                        <p class="fl">我的菜单3</p>
+                        <s href="javascript:void(0);"></s>
+                    </div>
+                    <div class="ztab-cont">
+                        <p>内容显示3</p>
+                    </div>
+                    <div class="ztab-head">
+                        <p class="fl">我的菜单4</p>
+                        <s href="javascript:void(0);"></s>
+                    </div>
+                    <div class="ztab-cont">
+                        <p>内容显示4</p>
+                    </div>
+                    <div class="ztab-head">
+                        <p class="fl">我的菜单5</p>
+                        <s href="javascript:void(0);"></s>
+                    </div>
+                    <div class="ztab-cont">
+                        <p>内容显示5</p>
+                    </div>
+                </div>
+            </div>
+
+	    </div>
+	</div>
+	<!-- 底部-->
+	<div class="foot">
+	   <div class="foot-main">
+	   	   <a href="#">jQuery.min</a>
+	   </div> 	
+	</div>
+	
+
+</body>
+<script type="text/javascript">
+    //选项卡菜单项和内容项的位置不能变动
+    $(function(){
+        //示例一
+        $('#tab').accordion({
+            linkA: true,
+            easings: 'easeOutQuad',
+            autoPlay: true,
+            index: 3
+        });
+
+        // $('#tabStop').click(function(){
+        // $('#tab2').accordion('unauto');
+        // });
+
+        // $('#tabPlay').click(function(){
+        // $('#tab2').accordion('auto');
+        // });
+
+        $('#tabUnClick').click(function(){
+            $('.tab').accordion('disable');
+            $('#asidenav').accordion('disable');
+        });
+
+        $('#tabEnClick').click(function(){
+            $('.tab').accordion('enable');
+            $('#asidenav').accordion('enable');
+        });
+
+        //$('#tab').accordion('disable');
+
+        //示例二 - 普通点击选项卡
+        // $('#tab2').accordion({
+        // autoPlay: true
+        // });
+        //$('#tab2').accordion('enable');
+
+        //$('#tab22').accordion();
+
+        $('.tab').accordion();
+
+        //示例三 - 样式的匹配选项卡
+        //$('.tab3').accordion();
+
+        //示例四
+        $('#asidenav').accordion({
+            zHeadClass: '.ztab-head',
+            zContClass: '.ztab-cont',
+            autoPlay: true,
+            easings: 'easeOutQuad'
+        });
+
+        //示例五
+        $('#asidenav1').accordion({
+            zHeadClass: '.ztab-head',
+            zContClass: '.ztab-cont',
+            index: 2
+        });
+
+    });
+</script>
+</html>
